@@ -88,7 +88,16 @@ app.delete("/todos/:id", async (req, res) => {
 
 // ---------------- HEALTH CHECK ----------------
 app.get("/", (req, res) => {
-  res.json({ status: "Backend running 🚀" });
+  res.send({
+    activeStatus:true,
+      message: "Server is running",
+  })
 });
+if (process.env.NODE_ENV !== "production") {
+  app.listen(5000, () => {
+    console.log("Server running locally");
+  });
+}
 
 module.exports = app;
+
