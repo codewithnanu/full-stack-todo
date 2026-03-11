@@ -1,6 +1,9 @@
 datasource db {
   provider = "mysql"
-   url      = "mysql://root:2004@localhost:3306/todo_app"
+  
+  url      = env("DATABASE_URL")
+
+
 }
 
 generator client {
